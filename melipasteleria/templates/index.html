@@ -1,0 +1,23 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<main class="container py-5">
+    <section class="card card-body">
+        <h1 class="h1 text-center">¡Descubre el secreto detrás de establecer precios efectivos!</h1>
+        <h6 class="text-center">En nuestra plataforma, te enseñamos cómo calcular el costo real de tus productos de manera sencilla y precisa. Desde la evaluación de los costos de producción hasta la fijación de precios estratégicos, nuestro contenido te guiará paso a paso. Maximiza tus márgenes de beneficio y toma decisiones informadas con nuestra herramienta de cálculo de costos. ¡Potencia tu negocio con conocimientos sólidos sobre la valoración de tus productos!"</h6>
+        {% if user.is_authenticated %}
+        <h3 class="text-center">Como darle valor a tu producto</h3>
+        <div class="d-grid gap-2 col-6 mx-auto py-3">
+            <a class="btn btn-dark" role="button" aria-disabled="true" href="/info">¡Dale click aqui!</a>
+        </div>
+        {% else %}
+        <h3 class="text-center">Registrate para tener acceso a nuestra herramienta de calculo en gastronomia</h3>
+        <div class="d-grid gap-2 col-6 mx-auto py-3">
+            <a class="btn btn-primary" role="button" aria-disabled="true" href="{% url 'crearUser' %}">¡Dale click aqui!</a>
+        </div>
+        {% endif %}
+    </section>
+</main>
+
+
+{% endblock %}

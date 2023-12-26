@@ -1,0 +1,36 @@
+<!-- productos/templates/productos/agregar_producto.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+</head>
+<body>
+    {% extends "layout/base.html" %}
+
+    {% block content %}
+    <h1>Agregar Producto</h1>
+
+    <form method="post" action="{% url 'agregar_producto' %}">
+        {% csrf_token %}
+
+        {{ producto_form.as_p }}
+
+        {% for form in relacion_formset_gramos %}
+            {{ form.as_p }}
+        {% endfor %}
+
+        {% for form in relacion_formset_unitarios %}
+            {{ form.as_p }}
+        {% endfor %}
+        
+        {{relacion_formset_unitarios}}
+
+        <input type="submit" value="Guardar">
+    </form>
+
+    {% endblock %}
+
+</body>
+</html>
